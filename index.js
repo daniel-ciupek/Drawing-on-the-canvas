@@ -1,5 +1,10 @@
+import DrawingPanel from "./drawing.js";
+
+const drawingPanel = new DrawingPanel();
+
+
 class CanvasDrawing {
-constructor(){
+constructor(drawingPanel){
 this.canvas = document.querySelector(".canvas");
 this.canvas.width = window.innerWidth;
 this.canvas.height = window.innerHeight;
@@ -11,6 +16,7 @@ this.setLineWidth(1);
 this.setLineColor("#000");
 
 this.drawing = false;
+this.drawingPanel = drawingPanel;
 
 this.init();
 }
@@ -56,5 +62,5 @@ context.stroke();
 [this.lastX, this.lastY ] = [e.offsetX, e.offsetY];
 }
 }
-const canvasDrawing = new CanvasDrawing();
+const canvasDrawing = new CanvasDrawing(drawingPanel);
 
